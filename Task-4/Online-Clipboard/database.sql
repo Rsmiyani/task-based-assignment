@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS online_clipboard CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE online_clipboard;
+
+CREATE TABLE IF NOT EXISTS clipboards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    code CHAR(4) NOT NULL UNIQUE,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
