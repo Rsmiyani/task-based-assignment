@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudra Miyani | Portfolio</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700;900&family=Outfit:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <div class="os-boot-container">
+            <div class="os-header">
+                <div class="sys-info">
+                    <span class="glitch-text" data-text="RUDRA_OS [Version 2.0.26]">RUDRA_OS [Version 2.0.26]</span>
+                    <span>(c) MIYANI CORP. All rights reserved.</span>
+                    <span class="cpu-info">CPU: INITIATING MULTI-THREADED KERNEL... OK</span>
+                    <span class="mem-info">MEMORY: 64TB ALLOCATED... OK</span>
+                </div>
+            </div>
+
+            <div class="os-center">
+                <div class="circular-spinner"></div>
+                <h1 class="welcome-text-os glitch-text" data-text="WELCOME">WELCOME</h1>
+            </div>
+
+            <div class="terminal-logs" id="terminal-logs">
+                <!-- Logs will be injected here via JS -->
+            </div>
+
+            <div class="loading-wrapper">
+                <div class="loading-bar-container">
+                    <div class="loading-bar" id="loading-bar"></div>
+                    <div class="loading-glow"></div>
+                </div>
+                <div class="loading-status">
+                    <span id="loading-text" class="pulse-text">BOOTING SYSTEM...</span>
+                    <span id="loading-percentage" class="percentage-text">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium noise overlay -->
+    <div class="noise"></div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="webgl"></canvas>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Animated Ambient Background -->
+    <div class="ambient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo magnetic">Rudra<span>.</span></div>
+        <div class="nav-links">
+            <a href="#about" class="magnetic nav-item">About</a>
+            <a href="#projects" class="magnetic nav-item">Work</a>
+            <a href="#achievements" class="magnetic nav-item">Impact</a>
+            <a href="#contact" class="magnetic nav-item">Contact</a>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-bg-text">DEVELOPER</div>
+                <div class="hero-content">
+                    <div class="hero-text-side">
+                        <div class="hero-title-wrapper">
+                            <h1 class="hero-title"><span id="type-rudra"></span><span
+                                    class="type-cursor type-cursor-1">|</span></h1>
+                            <h1 class="hero-title outline-text delay-title"><span id="type-miyani"></span><span
+                                    class="type-cursor type-cursor-2" style="display:none;">|</span></h1>
+                        </div>
+                        <div class="hero-bottom">
+                            <p class="hero-desc reveal-text">Software Engineer architecting scalable backend systems and
+                                high-performance digital experiences.</p>
+                        </div>
+                    </div>
+
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-border">
+                            <img src="images/photo.jpeg" alt="Rudra Miyani" class="hero-photo" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Marquee (Infinite Scroll) -->
+            <section class="marquee-section">
+                <!-- Row 1: Languages & Web Tech -->
+                <div class="marquee" id="marquee-1">
+                    <div class="marquee-content">
+                        <span>C/C++</span><span class="star">✧</span>
+                        <span>JAVA</span><span class="star">✧</span>
+                        <span>R</span><span class="star">✧</span>
+                        <span>PHP</span><span class="star">✧</span>
+                        <span>LARAVEL</span><span class="star">✧</span>
+                        <span>JAVASCRIPT</span><span class="star">✧</span>
+                        <span>HTML/CSS</span><span class="star">✧</span>
+                        <span>MYSQL</span><span class="star">✧</span>
+                    </div>
+                </div>
+                <!-- Row 2: Concepts & Software -->
+                <div class="marquee" id="marquee-2">
+                    <div class="marquee-content">
+                        <span class="outline-sec">DATA STRUCTURES</span><span class="star">✧</span>
+                        <span class="outline-sec">ALGORITHMS</span><span class="star">✧</span>
+                        <span class="outline-sec">OOP</span><span class="star">✧</span>
+                        <span class="outline-sec">SOFTWARE ENG</span><span class="star">✧</span>
+                        <span class="outline-sec">GIT/GITHUB</span><span class="star">✧</span>
+                        <span class="outline-sec">VS CODE</span><span class="star">✧</span>
+                        <span class="outline-sec">CANVA</span><span class="star">✧</span>
+                    </div>
+                </div>
+                <!-- Row 3: Soft Skills -->
+                <div class="marquee" id="marquee-1">
+                    <div class="marquee-content">
+                        <span>LEADERSHIP</span><span class="star">✧</span>
+                        <span>ADAPTABILITY</span><span class="star">✧</span>
+                        <span>COMMUNICATION</span><span class="star">✧</span>
+                        <span>ETHICAL BELIEFS</span><span class="star">✧</span>
+                        <span>LISTENER</span><span class="star">✧</span>
+                        <span>BELIEVER</span><span class="star">✧</span>
+                        <span>FRIENDLINESS</span><span class="star">✧</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section (Scroll Pinning) -->
+            <section id="about" class="about">
+                <div class="about-container">
+                    <h2 class="section-title reveal-text">Who I Am</h2>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <p class="reveal-text">Full Stack Developer based in Rajkot, Gujarat, specializing in robust
+                                web architecture and high-performance applications. I engineer scalable backend systems
+                                and intuitive digital interfaces designed to solve complex operational challenges and
+                                deliver measurable impact.</p>
+                            <a href="#projects" class="btn magnetic transform-link">
+                                <span class="btn-text">Explore My Work</span>
+                            </a>
+                        </div>
+                        <div class="about-edu">
+                            <div class="edu-card reveal-up">
+                                <h3>B.Tech in ICT</h3>
+                                <p>Marwadi University, Rajkot</p>
+                                <span>2026 – Present • CGPA: 8.81</span>
+                            </div>
+                            <div class="edu-card reveal-up delay-1">
+                                <h3>Higher Secondary (HSC)</h3>
+                                <p>Akshar Jyoti High School, Surat</p>
+                                <span>2021 – 2022 • 81%</span>
+                            </div>
+                            <div class="edu-card reveal-up delay-1">
+                                <h3>Secondary School (SSC)</h3>
+                                <p>Akshar Jyoti High School, Surat</p>
+                                <span>2023 – 2024 • 85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects (Stacking Cards) -->
+            <section id="projects" class="projects">
+                <h2 class="section-title text-center reveal-text">Selected Works</h2>
+                <div class="projects-wrapper">
+
+                    <div class="project-card sticky-card card-1">
+                        <div class="project-info">
+                            <div class="tech-stack">PHP • MySQL • AI</div>
+                            <h2>TrainAI</h2>
+                            <p>AI-Powered Training Management System with multi-role access (Admin, Trainer, Trainee).
+                                Features AI course recommendations, gamification (badges, leaderboards), and real-time
+                                performance analytics.</p>
+                            <span class="project-span">Jan 2026 – Feb 2026</span>
+                        </div>
+                        <div class="project-visual">
+                            <img src="images/trainai.png" alt="TrainAI Project" class="project-image" />
+                        </div>
+                    </div>
+
+                    <div class="project-card sticky-card card-2">
+                        <div class="project-info">
+                            <div class="tech-stack">PHP • MySQL • POS</div>
+                            <h2>Odoo Cafe POS</h2>
+                            <p>Restaurant POS web application featuring a Kitchen Display System (KDS), multi-role
+                                access, and a Sales Analytics module with real-time order tracking and revenue reports.
+                            </p>
+                            <span class="project-span">Jan 2026 – Feb 2026</span>
+                        </div>
+                        <div class="project-visual">
+                            <img src="images/POS.png" alt="Odoo Cafe POS Project" class="project-image" />
+                        </div>
+                    </div>
+
+                    <div class="project-card sticky-card card-3">
+                        <div class="project-info">
+                            <div class="tech-stack">PHP • MySQL • JS • Chart.js</div>
+                            <h2>GearGuard</h2>
+                            <p>Maintenance management app offering Kanban boards, Calendar views, and Analytics
+                                dashboards with secure authentication (bcrypt, CSRF, PDO) managing equipment and teams.
+                            </p>
+                            <span class="project-span">Dec 2025 – Jan 2026</span>
+                        </div>
+                        <div class="project-visual">
+                            <img src="images/GearGuard.png" alt="GearGuard Project" class="project-image" />
+                        </div>
+                    </div>
+
+                    <div class="project-card sticky-card card-4">
+                        <div class="project-info">
+                            <div class="tech-stack">PHP • MySQL • JS • SMTP</div>
+                            <h2>Circuitology Club</h2>
+                            <p>Component lending web app managing inventory, issue/return tracking, and real-time
+                                availability. Includes automated overdue detection and email notifications via
+                                PHPMailer.</p>
+                            <span class="project-span">Jan 2026 – Feb 2026</span>
+                        </div>
+                        <div class="project-visual">
+                            <img src="images/Circuitology-club.png" alt="Circuitology Club Project"
+                                class="project-image" />
+                        </div>
+                    </div>
+
+                    <div class="project-card sticky-card card-5">
+                        <div class="project-info">
+                            <div class="tech-stack">PHP • MySQL</div>
+                            <h2>Data Science Club Platform</h2>
+                            <p>Interactive platform with a built-in code editor, certificate generator, event
+                                registrations, and an admin dashboard tracking real-time performance and resources.</p>
+                            <span class="project-span">Mar 2026 – Feb 2026</span>
+                        </div>
+                        <div class="project-visual">
+                            <img src="images/data-scienceclub.png" alt="Data Science Club Platform Project"
+                                class="project-image" />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Achievements & Leadership -->
+            <section id="achievements" class="achievements">
+                <div class="achieve-container">
+                    <h2 class="section-title reveal-text">Leadership & Impact</h2>
+
+                    <div class="achieve-grid">
+                        <div class="achieve-column">
+                            <h3 class="column-title">Leadership Roles</h3>
+                            <div class="achieve-list">
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>Treasurer, IEEE SPS MEFGI</h3>
+                                        <p>Marwadi University, Rajkot (2025 – Present)</p>
+                                    </div>
+                                </div>
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>Convener, Data Science Club</h3>
+                                        <p>Marwadi University, Rajkot (2025 – Present)</p>
+                                    </div>
+                                </div>
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>Google Student Ambassador</h3>
+                                        <p>July 2025 – December 2025</p>
+                                    </div>
+                                </div>
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>Internshala Student Partner</h3>
+                                        <p>September 2025 – October 2025</p>
+                                    </div>
+                                </div>
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>HackerRank Campus Crew</h3>
+                                        <p>February 2025 - Present</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achieve-column">
+                            <h3 class="column-title">Achievements & Volunteering</h3>
+                            <div class="achieve-list">
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>Datathon Winner</h3>
+                                        <p>At SAMPARK 2025 National Flagship event</p>
+                                    </div>
+                                </div>
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>Hackathon Finalist</h3>
+                                        <p>ODOO x Adani Hackathon</p>
+                                    </div>
+                                </div>
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>Hackathon Finalist</h3>
+                                        <p>HackX & IndiaInnovates Hackathons</p>
+                                    </div>
+                                </div>
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>Open Source Contributor</h3>
+                                        <p>Open Source Connect India 2025</p>
+                                    </div>
+                                </div>
+                                <div class="achieve-item">
+                                    <div class="achieve-detail">
+                                        <h3>Volunteer</h3>
+                                        <p>AISTS 2025 Conference, Marwadi University</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Contact Section with FormSubmit -->
+            <section id="contact" class="contact-section">
+                <div class="contact-container">
+
+                    <div class="contact-info-block">
+                        <h2 class="section-title reveal-text">Let's Talk</h2>
+                        <p class="contact-sub reveal-up">Ready to build something extraordinary? Send me a message or
+                            connect directly via email and socials.</p>
+
+                        <div class="contact-details">
+                            <div class="contact-link magnetic reveal-up delay-1">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:rudramiyani2008@gmail.com">rudramiyani2008@gmail.com</a>
+                            </div>
+                            <div class="contact-link magnetic reveal-up delay-1">
+                                <i class="fas fa-phone"></i>
+                                <p>+91 83207 75320</p>
+                            </div>
+                            <div class="contact-link magnetic reveal-up delay-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Rajkot, Gujarat, India</p>
+                            </div>
+                        </div>
+
+                        <div class="socials-block reveal-up delay-1">
+                            <a href="https://github.com/Rsmiyani" class="magnetic" target="_blank"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/rudramiyani2024" class="magnetic" target="_blank"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-block reveal-up">
+                        <form action="https://formsubmit.co/rudramiyani2008@gmail.com" method="POST"
+                            class="inquiry-form">
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_subject" value="New Portfolio Inquiry!">
+                            <input type="hidden" name="_template" value="box">
+
+                            <div class="form-group">
+                                <input type="text" name="name" required placeholder="Your Name"
+                                    class="form-input magnetic-input">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" required placeholder="Your Email"
+                                    class="form-input magnetic-input">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" required placeholder="Your Message" rows="4"
+                                    class="form-input magnetic-input"></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn magnetic">
+                                <span class="btn-text">Send Message</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 Rudra Miyani</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis for Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
