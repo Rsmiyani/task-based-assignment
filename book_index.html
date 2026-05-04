@@ -1,0 +1,93 @@
+<!--
+  Simple, human-friendly HTML page showing a Book's Index / Table of Contents.
+  - Uses Comic Sans for a friendly look
+  - No external CSS file; minimal inline styles only for font and rounded border
+  - Keep markup semantic and easy to read
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Table of Contents</title>
+  </head>
+  <body style="margin:24px; background:#f8f9fb;">
+
+    <!-- Main container with a rounded border. Inline style used to keep everything in one file. -->
+    <div style="max-width:900px; margin:0 auto; background:#ffffff; border:1px solid #e0e0e0; border-radius:12px; padding:24px; box-shadow:0 4px 10px rgba(0,0,0,0.03); font-family: 'Comic Sans MS', 'Comic Sans', cursive; color:#222;">
+
+      <!-- Header: book title and metadata (traditional tag) -->
+      <div style="margin-bottom:18px;">
+        <h1 style="margin:0 0 6px 0; font-size:28px;">The Friendly Guide to Web Reading</h1>
+        <p style="margin:0; color:#555;">By Sam Example — 2nd Edition • 2026</p>
+      </div>
+
+      <!-- Short description / purpose of the TOC -->
+      <p style="margin-top:16px; color:#444;">Below is the book's Index / Table of Contents. Chapter titles show main sections, and indented items show subsections. Page numbers are shown on the right for quick reference.</p>
+
+      <!-- Table of Contents (traditional tags). Added clear black border around this area. -->
+      <div style="margin-top:18px;">
+        <div style="border:2px solid #000; border-radius:8px; padding:12px;">
+          <ol style="padding-left:18px; margin:0;">
+          <li style="margin:12px 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>Part I — Getting Started</strong>
+              <span style="color:#666;">p. 1</span>
+            </div>
+            <ol style="margin:8px 0 0 18px; color:#444;">
+              <li>Introduction to the Book <span style="color:#666;">p. 2</span></li>
+              <li>How to Use This Book <span style="color:#666;">p. 6</span></li>
+            </ol>
+          </li>
+
+          <li style="margin:12px 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>Chapter 1 — The Basics of HTML</strong>
+              <span style="color:#666;">p. 11</span>
+            </div>
+            <ol style="margin:8px 0 0 18px; color:#444;">
+              <li>Elements and Tags <span style="color:#666;">p. 12</span></li>
+              <li>Attributes and Accessibility <span style="color:#666;">p. 20</span></li>
+            </ol>
+          </li>
+
+          <li style="margin:12px 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>Chapter 2 — Structuring Content</strong>
+              <span style="color:#666;">p. 31</span>
+            </div>
+            <ol style="margin:8px 0 0 18px; color:#444;">
+              <li>Headings and Flow <span style="color:#666;">p. 33</span></li>
+              <li>Lists, Figures, and Tables <span style="color:#666;">p. 42</span></li>
+            </ol>
+          </li>
+
+          <li style="margin:12px 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>Chapter 3 — Making It Nice</strong>
+              <span style="color:#666;">p. 55</span>
+            </div>
+            <ol style="margin:8px 0 0 18px; color:#444;">
+              <li>Typography Tips <span style="color:#666;">p. 56</span></li>
+              <li>Images and Media <span style="color:#666;">p. 64</span></li>
+            </ol>
+          </li>
+
+          <li style="margin:12px 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>Appendix</strong>
+              <span style="color:#666;">p. 101</span>
+            </div>
+            <ol style="margin:8px 0 0 18px; color:#444;">
+              <li>Quick Reference <span style="color:#666;">p. 102</span></li>
+              <li>Further Reading <span style="color:#666;">p. 110</span></li>
+            </ol>
+          </li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

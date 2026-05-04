@@ -1,0 +1,150 @@
+<!--
+  Minimal Quiz App
+  - Single HTML file with inline styles (Comic Sans)
+  - Simple JavaScript: questions array, navigation, scoring
+  - Minimal, human-friendly markup and comments
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Minimal Quiz</title>
+  </head>
+  <body style="font-family: 'Comic Sans MS', 'Comic Sans', cursive; background:#f7f8fb; margin:32px; color:#111;">
+
+    <div style="max-width:720px; margin:0 auto; background:#fff; border:1px solid #e0e0e0; border-radius:12px; padding:20px; box-shadow:0 4px 8px rgba(0,0,0,0.04);">
+      <h1 style="margin:0 0 6px 0; font-size:22px;">Quick Quiz</h1>
+      <p style="margin:0 0 14px 0; color:#555;">A tiny, minimal quiz. Choose an answer and navigate with Next / Prev. Submit to see your score.</p>
+
+      <!-- Quiz area -->
+      <div id="quizBox" style="border-radius:8px; padding:12px; background:#fbfcfd;">
+        <!-- question will be injected here -->
+        <div id="qNumber" style="color:#666; font-size:14px; margin-bottom:8px;"></div>
+        <div id="question" style="font-weight:600; margin-bottom:10px;"></div>
+
+        <form id="optionsForm" style="margin-bottom:12px;">
+          <!-- options will be injected here as radio inputs -->
+        </form>
+
+        <div style="display:flex; gap:8px;">
+          <button id="prevBtn" style="padding:8px 12px; border-radius:8px; border:1px solid #ccc; background:#fff; cursor:pointer;">Prev</button>
+          <button id="nextBtn" style="padding:8px 12px; border-radius:8px; border:1px solid #333; background:#fff; cursor:pointer;">Next</button>
+          <button id="submitBtn" style="margin-left:auto; padding:8px 12px; border-radius:8px; border:1px solid #333; background:#fff; cursor:pointer;">Submit</button>
+        </div>
+
+        <div id="result" aria-live="polite" style="margin-top:12px; color:#0a7a07; font-weight:600;"></div>
+      </div>
+    </div>
+
+    <script>
+      // Simple question set. Replace or extend as you like.
+      const questions = [
+        {
+          q: 'Which language is used for styling web pages?',
+          options: ['HTML', 'CSS', 'Python', 'C++'],
+          answer: 1
+        },
+        {
+          q: 'What does HTML stand for?',
+          options: ['Hyper Text Markup Language', 'Hot Mail', 'Home Tool Markup', 'Hyperlinks Text Markup'],
+          answer: 0
+        },
+        {
+          q: 'Which tag is used for a paragraph in HTML?',
+          options: ['<div>', '<p>', '<span>', '<section>'],
+          answer: 1
+        }
+      ];
+
+      // keep track of current question and user choices
+      let current = 0;
+      const choices = new Array(questions.length).fill(null);
+
+      // render current question
+      function renderQuestion() {
+        const qNum = document.getElementById('qNumber');
+        const qText = document.getElementById('question');
+        const form = document.getElementById('optionsForm');
+
+        qNum.textContent = `Question ${current + 1} of ${questions.length}`;
+        qText.innerHTML = questions[current].q;
+
+        // build options
+        form.innerHTML = '';
+        questions[current].options.forEach((opt, i) => {
+          const id = `opt-${current}-${i}`;
+          const wrapper = document.createElement('div');
+          wrapper.style.marginBottom = '8px';
+
+          const input = document.createElement('input');
+          input.type = 'radio';
+          input.name = 'option';
+          input.id = id;
+          input.value = i;
+          input.style.marginRight = '8px';
+
+          // restore previous choice if any
+          if (choices[current] === i) input.checked = true;
+
+          const label = document.createElement('label');
+          label.htmlFor = id;
+          label.textContent = opt;
+
+          wrapper.appendChild(input);
+          wrapper.appendChild(label);
+          form.appendChild(wrapper);
+        });
+      }
+
+      // attach events to navigation and submit
+      (function init() {
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const form = document.getElementById('optionsForm');
+
+        // capture choice when user changes selection
+        form.addEventListener('change', (e) => {
+          if (e.target && e.target.name === 'option') {
+            choices[current] = parseInt(e.target.value, 10);
+          }
+        });
+
+        prevBtn.addEventListener('click', () => {
+          // save current selection if any
+          saveCurrentSelection();
+          if (current > 0) current--;
+          renderQuestion();
+        });
+
+        nextBtn.addEventListener('click', () => {
+          saveCurrentSelection();
+          if (current < questions.length - 1) current++;
+          renderQuestion();
+        });
+
+        submitBtn.addEventListener('click', () => {
+          saveCurrentSelection();
+          // score calculation
+          let score = 0;
+          for (let i = 0; i < questions.length; i++) {
+            if (choices[i] === questions[i].answer) score++;
+          }
+          const result = document.getElementById('result');
+          result.textContent = `You scored ${score} / ${questions.length}`;
+        });
+
+        // helper to store selected radio into choices array
+        function saveCurrentSelection() {
+          const checked = form.querySelector('input[name="option"]:checked');
+          if (checked) choices[current] = parseInt(checked.value, 10);
+        }
+
+        // initial render
+        renderQuestion();
+      })();
+    </script>
+
+  </body>
+</html>
