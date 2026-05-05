@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweet Slice Cakes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+
+      <div>
+        <h1>Sweet Slice Cakes</h1>
+        <p>Fresh cakes made with love</p>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#cakes">Cakes</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="home" class="home-page">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="tag">Cake Shop</p>
+        <h2>Simple cakes for every sweet moment</h2>
+        <p>Enjoy a clean and minimal cake shop homepage with a small image slider.</p>
+      </div>
+
+      <div class="slider" aria-label="Cake image slider">
+        <button class="slider-btn prev" type="button" aria-label="Previous cake">‹</button>
+        <div class="slide">
+          <img id="sliderImage" src="img.jpg" alt="Cake slide 1" />
+          <div class="slide-caption">
+            <h3 id="slideTitle">Chocolate Delight</h3>
+            <p id="slideText">Soft, rich, and simple.</p>
+          </div>
+        </div>
+        <button class="slider-btn next" type="button" aria-label="Next cake">›</button>
+      </div>
+    </section>
+
+    <section id="cakes" class="info-section">
+      <h2>Our Cakes</h2>
+      <p>Birthday cakes, chocolate cakes, and custom celebration cakes.</p>
+    </section>
+
+    <section id="about" class="info-section">
+      <h2>About Us</h2>
+      <p>We bake fresh cakes with a soft homemade style and simple presentation.</p>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <p>Contact: sweet@cakeshop.com | +91 98765 43210</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
